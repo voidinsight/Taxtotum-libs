@@ -1,0 +1,13 @@
+{
+    "name": "voidinsight/taxtotum-libs",
+    "description": "A little framework to support Taxtotum Project",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Alberto Clemente",
+            "email": "info@voidinsight.it"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
