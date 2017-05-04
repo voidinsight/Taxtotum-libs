@@ -2,7 +2,7 @@
 
 namespace VoidInsight\Taxtotum\Libs\TaxStrategy;
 
-class RatioTaxStrategy extends AbstractTaxStrategy {
+class DummyTaxStrategy extends AbstractTaxStrategy {
     
     /**
      * {@inheritdoc}
