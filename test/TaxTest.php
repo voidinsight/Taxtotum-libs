@@ -51,4 +51,13 @@ class TaxTest extends TestCase {
             [100, 25]
         ];
     }
+    
+    public function testStrategyAttributeIsSettable() {
+        $strategy = $this->getMock(TaxStrategyInterface::class);
+        
+        $this->assertInstanceOf(Tax::class, $this->obj);
+        
+        $this->assertSame($this->obj, $this->obj->setStrategy($strategy));
+        $this->assertSame($strategy, $this->obj->getStrategy());
+    }
 }
