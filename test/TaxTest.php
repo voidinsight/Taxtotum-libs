@@ -11,6 +11,7 @@ class TaxTest extends TestCase {
     protected $obj;
     
     protected function setUp() {
+        $this->obj = new Tax;
     }
 
     /**
