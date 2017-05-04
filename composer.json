@@ -20,5 +20,13 @@
             "VoidInsight\\Taxtotum\\Libs\\": "src/",
             "VoidInsight\\Taxtotum\\Test\\": "test/"
         }
+    },
+    "scripts": {
+        "test": [
+            "phpunit --testdox --coverage-html docs/phpunit"
+        ],
+        "docs": [
+            "bin/phpDocumentor.phar -d src/ -t docs/api"
+        ]
     }
 }
