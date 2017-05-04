@@ -4,6 +4,7 @@ namespace VoidInsight\Taxtotum\Test;
 use PHPUnit\Framework\TestCase;
 use VoidInsight\Taxtotum\Libs\AbstractTax;
 use VoidInsight\Taxtotum\Libs\TaxInterface;
+use VoidInsight\Taxtotum\Libs\TaxConfInterface;
 
 class AbstractTaxTest extends TestCase {
     
@@ -14,8 +15,25 @@ class AbstractTaxTest extends TestCase {
     }
     
     /**
+     * @dataProvider paramsDataProvider
+     */
+    public function testParamsAreSettable($param, $value) {
+        $this->assertInstanceOf(TaxConfInterface::class, $this->obj);
+        
+        $this->assertSame($this->obj, $this->obj->setParamValue($param, $value));
+        $this->assertSame($value, $this->obj->getParamValue($param));
+    }
+    
+    public function paramsDataProvider() {
+        return [
+            ['test_param', 'test_value']
+        ];
+    }
+    
+    /**
      * @dataProvider taxableDataProvider
-     **/
+     * @depends testParamsAreSettable
+     */
     public function testTaxableAttributeIsSettable($taxable) {
         
         $this->assertInstanceOf(AbstractTax::class, $this->obj);

@@ -1,0 +1,37 @@
+<?php
+
+namespace VoidInsight\Taxtotum\Libs;
+
+use VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyInterface;
+
+class Tax extends AbstractTax {
+    
+    /**
+     * @var TaxStrategyInterface
+     **/
+    protected $strategy;
+    
+    /**
+     * {@inheritdoc}
+     **/
+    public function getStrategy() {
+        return $strategy;
+    }
+    
+    /**
+     * {@inheritdoc}
+     **/
+    public function setStrategy(TaxStrategyInterface $strategy) {
+        $this->strategy = $strategy;
+        
+        return $this;
+    }
+    
+    /**
+     * {@inheritdoc}
+     **/
+    public function calculate() {
+        return $this->getStrategy()->calculate(
+                                        $this->getTaxable());
+    }
+}

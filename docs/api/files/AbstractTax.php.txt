@@ -1,0 +1,32 @@
+<?php
+
+namespace VoidInsight\Taxtotum\Libs;
+
+abstract class AbstractTax implements TaxInterface {
+    
+    /**
+     * @var float
+     **/
+    private $taxable = 0.0;
+    
+    /**
+     * {@inheritdoc}
+     **/
+    public function getTaxable() {
+        return $this->taxable;
+    }
+    
+    /**
+     * {@inheritdoc}
+     **/
+    public function setTaxable($taxable) {
+        $this->taxable = $taxable;
+        
+        return $this;
+    }
+    
+    /**
+     * {@inheritdoc}
+     **/
+    abstract function calculate();
+}

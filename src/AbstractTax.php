@@ -2,32 +2,59 @@
 
 namespace VoidInsight\Taxtotum\Libs;
 
-abstract class AbstractTax implements TaxInterface {
+/**
+ * 
+ */
+abstract class AbstractTax implements TaxInterface, TaxConfInterface {
     
     /**
-     * @var float
-     **/
-    private $taxable = 0.0;
+     * @internal
+     */
+    const PARAM_TAXABLE = 'PARAM_TAXABLE';
     
     /**
-     * @return TaxInterface
-     **/
-    public function getTaxable() {
-        return $this->taxable;
+     * @var array
+     */
+    private $params;
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function getParamValue($paramName) {
+       return $this->params[$paramName];
     }
     
     /**
-     * @param float $taxable
-     * @return TaxInterface
-     **/
-    public function setTaxable($taxable) {
-        $this->taxable = $taxable;
+     * {@inheritdoc}
+     */
+    public function setParamValue($paramName, $value) {
+        $this->params[$paramName] = $value;
         
         return $this;
     }
     
     /**
-     * @return float
-     **/
+     * {@inheritdoc}
+     */
+    public function getTaxable() {
+        return $this->getParamValue(self::PARAM_TAXABLE);
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function setTaxable($taxable) {
+        $this->setParamValue(self::PARAM_TAXABLE, $taxable);
+        
+        return $this;
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
     abstract function calculate();
+    
+    public function __construct() {
+        $this->params = array();
+    }
 }

@@ -7,34 +7,31 @@ use VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyInterface;
 class Tax extends AbstractTax {
     
     /**
-     * @var TaxStrategyInterface
-     **/
-    protected $strategy;
+     * @internal
+     */
+    const PARAM_STRATEGY = 'PARAM_STRATEGY';
     
     /**
-     * @reutrn TaxStrategyInterface
+     * {@inheritdoc}
      **/
     public function getStrategy() {
-        return $strategy;
+        return $this->getParamValue(self::PARAM_STRATEGY);
     }
     
     /**
-     * @param TaxStrategyInterface $strategy
-     * @return Tax
+     * {@inheritdoc}
      **/
     public function setStrategy(TaxStrategyInterface $strategy) {
-        $this->strategy = $strategy;
+        $this->setParamValue(self::PARAM_STRATEGY, $strategy);
         
         return $this;
     }
     
     /**
-     * @return float
+     * {@inheritdoc}
      **/
     public function calculate() {
-        $strategy = $this->getStrategy();
-        $taxable = $this->getTaxable();
-        var_dump($strategy, $taxable);
-        return $strategy->calculate($taxable);
+        return $this->getStrategy()->calculate(
+                                        $this->getTaxable());
     }
 }

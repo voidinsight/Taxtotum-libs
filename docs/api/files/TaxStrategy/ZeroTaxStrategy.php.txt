@@ -1,0 +1,13 @@
+<?php
+
+namespace VoidInsight\Taxtotum\Libs\TaxStrategy;
+
+class ZeroTaxStrategy extends AbstractTaxStrategy {
+    
+    /**
+     * {@inheritdoc}
+     **/
+    public function calculate($taxable) {
+        return 0.0;
+    }
+}
