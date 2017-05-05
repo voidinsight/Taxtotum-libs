@@ -26,7 +26,9 @@
             "phpunit --testdox --coverage-html docs/phpunit"
         ],
         "docs": [
-            "bin/phpDocumentor.phar -d src/ -t docs/api"
+            "bin/phpDocumentor.phar -d src/ -t docs/api",
+            "git add docs/*",
+            "git commit -m \"Docs updated\""
         ]
     }
 }
