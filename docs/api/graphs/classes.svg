@@ -31,19 +31,19 @@
 </g>
 <!-- \\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\MinimumDecoratorTaxStrategy -->
 <g id="node1" class="node"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\MinimumDecoratorTaxStrategy</title>
-<polygon fill="none" stroke="black" points="995.5,-236 796.5,-236 796.5,-200 995.5,-200 995.5,-236"/>
-<text text-anchor="middle" x="896" y="-215.2" font-family="Courier,monospace" font-size="11.00">MinimumDecoratorTaxStrategy</text>
+<polygon fill="none" stroke="black" points="995.5,-263 796.5,-263 796.5,-227 995.5,-227 995.5,-263"/>
+<text text-anchor="middle" x="896" y="-242.2" font-family="Courier,monospace" font-size="11.00">MinimumDecoratorTaxStrategy</text>
 </g>
 <!-- \\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractDecoratorTaxStrategy -->
-<g id="node5" class="node"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractDecoratorTaxStrategy</title>
-<polygon fill="none" stroke="black" points="724,-182 518,-182 518,-146 724,-146 724,-182"/>
-<text text-anchor="start" x="587" y="-167.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
-<text text-anchor="start" x="526" y="-155.2" font-family="Courier,monospace" font-size="11.00">AbstractDecoratorTaxStrategy</text>
+<g id="node6" class="node"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractDecoratorTaxStrategy</title>
+<polygon fill="none" stroke="black" points="724,-236 518,-236 518,-200 724,-200 724,-236"/>
+<text text-anchor="start" x="587" y="-221.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
+<text text-anchor="start" x="526" y="-209.2" font-family="Courier,monospace" font-size="11.00">AbstractDecoratorTaxStrategy</text>
 </g>
 <!-- \\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\MinimumDecoratorTaxStrategy&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractDecoratorTaxStrategy -->
 <g id="edge1" class="edge"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\MinimumDecoratorTaxStrategy&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractDecoratorTaxStrategy</title>
-<path fill="none" stroke="black" d="M803.715,-199.944C777.875,-194.833 749.598,-189.239 723.21,-184.02"/>
-<polygon fill="none" stroke="black" points="723.688,-180.546 713.199,-182.039 722.329,-187.413 723.688,-180.546"/>
+<path fill="none" stroke="black" d="M796.441,-235.252C776.228,-233.253 754.809,-231.135 734.159,-229.093"/>
+<polygon fill="none" stroke="black" points="734.388,-225.598 724.092,-228.097 733.699,-232.564 734.388,-225.598"/>
 </g>
 <!-- \\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\RatioTaxStrategy -->
 <g id="node2" class="node"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\RatioTaxStrategy</title>
@@ -51,7 +51,7 @@
 <text text-anchor="middle" x="621" y="-269.2" font-family="Courier,monospace" font-size="11.00">RatioTaxStrategy</text>
 </g>
 <!-- \\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractTaxStrategy -->
-<g id="node3" class="node"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractTaxStrategy</title>
+<g id="node4" class="node"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractTaxStrategy</title>
 <polygon fill="none" stroke="black" points="445.5,-236 300.5,-236 300.5,-200 445.5,-200 445.5,-236"/>
 <text text-anchor="start" x="339" y="-221.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
 <text text-anchor="start" x="308.5" y="-209.2" font-family="Courier,monospace" font-size="11.00">AbstractTaxStrategy</text>
@@ -61,13 +61,23 @@
 <path fill="none" stroke="black" d="M558.241,-258.443C527.286,-251.648 489.382,-243.328 456.02,-236.004"/>
 <polygon fill="none" stroke="black" points="456.343,-232.492 445.825,-233.766 454.842,-239.329 456.343,-232.492"/>
 </g>
+<!-- \\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\MaximumDecoratorTaxStrategy -->
+<g id="node3" class="node"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\MaximumDecoratorTaxStrategy</title>
+<polygon fill="none" stroke="black" points="995.5,-209 796.5,-209 796.5,-173 995.5,-173 995.5,-209"/>
+<text text-anchor="middle" x="896" y="-188.2" font-family="Courier,monospace" font-size="11.00">MaximumDecoratorTaxStrategy</text>
+</g>
+<!-- \\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\MaximumDecoratorTaxStrategy&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractDecoratorTaxStrategy -->
+<g id="edge3" class="edge"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\MaximumDecoratorTaxStrategy&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractDecoratorTaxStrategy</title>
+<path fill="none" stroke="black" d="M796.441,-200.748C776.228,-202.747 754.809,-204.865 734.159,-206.907"/>
+<polygon fill="none" stroke="black" points="733.699,-203.436 724.092,-207.903 734.388,-210.402 733.699,-203.436"/>
+</g>
 <!-- \\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\TaxStrategyInterface -->
 <g id="node7" class="node"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\TaxStrategyInterface</title>
 <polygon fill="none" stroke="black" points="214,-209 62,-209 62,-173 214,-173 214,-209"/>
 <text text-anchor="middle" x="138" y="-188.2" font-family="Courier,monospace" font-size="11.00">TaxStrategyInterface</text>
 </g>
 <!-- \\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractTaxStrategy&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\TaxStrategyInterface -->
-<g id="edge5" class="edge"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractTaxStrategy&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\TaxStrategyInterface</title>
+<g id="edge6" class="edge"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractTaxStrategy&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\TaxStrategyInterface</title>
 <path fill="none" stroke="black" stroke-dasharray="1,5" d="M300.191,-209.679C276.217,-206.901 249.266,-203.778 224.364,-200.892"/>
 <polygon fill="none" stroke="black" points="224.537,-197.389 214.201,-199.714 223.732,-204.342 224.537,-197.389"/>
 </g>
@@ -77,34 +87,24 @@
 <text text-anchor="middle" x="138" y="-242.2" font-family="Courier,monospace" font-size="11.00">TaxStrategyConfInterface</text>
 </g>
 <!-- \\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractTaxStrategy&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\TaxStrategyConfInterface -->
-<g id="edge6" class="edge"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractTaxStrategy&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\TaxStrategyConfInterface</title>
+<g id="edge7" class="edge"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractTaxStrategy&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\TaxStrategyConfInterface</title>
 <path fill="none" stroke="black" stroke-dasharray="1,5" d="M300.191,-226.321C280.542,-228.598 258.893,-231.107 238.011,-233.527"/>
 <polygon fill="none" stroke="black" points="237.364,-230.078 227.834,-234.706 238.17,-237.032 237.364,-230.078"/>
 </g>
 <!-- \\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\FixedTaxStrategy -->
-<g id="node4" class="node"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\FixedTaxStrategy</title>
-<polygon fill="none" stroke="black" points="683.5,-236 558.5,-236 558.5,-200 683.5,-200 683.5,-236"/>
-<text text-anchor="middle" x="621" y="-215.2" font-family="Courier,monospace" font-size="11.00">FixedTaxStrategy</text>
+<g id="node5" class="node"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\FixedTaxStrategy</title>
+<polygon fill="none" stroke="black" points="683.5,-182 558.5,-182 558.5,-146 683.5,-146 683.5,-182"/>
+<text text-anchor="middle" x="621" y="-161.2" font-family="Courier,monospace" font-size="11.00">FixedTaxStrategy</text>
 </g>
 <!-- \\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\FixedTaxStrategy&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractTaxStrategy -->
-<g id="edge7" class="edge"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\FixedTaxStrategy&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractTaxStrategy</title>
-<path fill="none" stroke="black" d="M558.241,-218C527.286,-218 489.382,-218 456.02,-218"/>
-<polygon fill="none" stroke="black" points="455.825,-214.5 445.825,-218 455.825,-221.5 455.825,-214.5"/>
+<g id="edge8" class="edge"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\FixedTaxStrategy&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractTaxStrategy</title>
+<path fill="none" stroke="black" d="M558.241,-177.557C527.286,-184.352 489.382,-192.672 456.02,-199.996"/>
+<polygon fill="none" stroke="black" points="454.842,-196.671 445.825,-202.234 456.343,-203.508 454.842,-196.671"/>
 </g>
 <!-- \\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractDecoratorTaxStrategy&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractTaxStrategy -->
-<g id="edge9" class="edge"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractDecoratorTaxStrategy&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractTaxStrategy</title>
-<path fill="none" stroke="black" d="M537.744,-182.056C511.363,-187.847 482.163,-194.257 455.814,-200.041"/>
-<polygon fill="none" stroke="black" points="454.884,-196.662 445.867,-202.224 456.385,-203.499 454.884,-196.662"/>
-</g>
-<!-- \\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\MaximumDecoratorTaxStrategy -->
-<g id="node6" class="node"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\MaximumDecoratorTaxStrategy</title>
-<polygon fill="none" stroke="black" points="995.5,-182 796.5,-182 796.5,-146 995.5,-146 995.5,-182"/>
-<text text-anchor="middle" x="896" y="-161.2" font-family="Courier,monospace" font-size="11.00">MaximumDecoratorTaxStrategy</text>
-</g>
-<!-- \\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\MaximumDecoratorTaxStrategy&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractDecoratorTaxStrategy -->
-<g id="edge10" class="edge"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\MaximumDecoratorTaxStrategy&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractDecoratorTaxStrategy</title>
-<path fill="none" stroke="black" d="M796.441,-164C776.228,-164 754.809,-164 734.159,-164"/>
-<polygon fill="none" stroke="black" points="734.092,-160.5 724.092,-164 734.092,-167.5 734.092,-160.5"/>
+<g id="edge10" class="edge"><title>\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractDecoratorTaxStrategy&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxStrategy\\AbstractTaxStrategy</title>
+<path fill="none" stroke="black" d="M517.811,-218C497.127,-218 475.634,-218 455.765,-218"/>
+<polygon fill="none" stroke="black" points="455.536,-214.5 445.536,-218 455.535,-221.5 455.536,-214.5"/>
 </g>
 <!-- \\VoidInsight\\Taxtotum\\Libs\\AbstractTax -->
 <g id="node9" class="node"><title>\\VoidInsight\\Taxtotum\\Libs\\AbstractTax</title>
@@ -118,7 +118,7 @@
 <text text-anchor="middle" x="373" y="-55.2" font-family="Courier,monospace" font-size="11.00">TaxInterface</text>
 </g>
 <!-- \\VoidInsight\\Taxtotum\\Libs\\AbstractTax&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxInterface -->
-<g id="edge3" class="edge"><title>\\VoidInsight\\Taxtotum\\Libs\\AbstractTax&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxInterface</title>
+<g id="edge4" class="edge"><title>\\VoidInsight\\Taxtotum\\Libs\\AbstractTax&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxInterface</title>
 <path fill="none" stroke="black" stroke-dasharray="1,5" d="M575.451,-79.2916C535.246,-75.0422 475.847,-68.7643 431.958,-64.1256"/>
 <polygon fill="none" stroke="black" points="432.313,-60.6437 422,-63.0732 431.577,-67.605 432.313,-60.6437"/>
 </g>
@@ -128,7 +128,7 @@
 <text text-anchor="middle" x="373" y="-109.2" font-family="Courier,monospace" font-size="11.00">TaxConfInterface</text>
 </g>
 <!-- \\VoidInsight\\Taxtotum\\Libs\\AbstractTax&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxConfInterface -->
-<g id="edge4" class="edge"><title>\\VoidInsight\\Taxtotum\\Libs\\AbstractTax&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxConfInterface</title>
+<g id="edge5" class="edge"><title>\\VoidInsight\\Taxtotum\\Libs\\AbstractTax&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\TaxConfInterface</title>
 <path fill="none" stroke="black" stroke-dasharray="1,5" d="M575.451,-89.0706C539.38,-93.1762 487.86,-99.0403 445.952,-103.81"/>
 <polygon fill="none" stroke="black" points="445.336,-100.358 435.796,-104.966 446.128,-107.313 445.336,-100.358"/>
 </g>
@@ -138,7 +138,7 @@
 <text text-anchor="middle" x="896" y="-81.2" font-family="Courier,monospace" font-size="11.00">Tax</text>
 </g>
 <!-- \\VoidInsight\\Taxtotum\\Libs\\Tax&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\AbstractTax -->
-<g id="edge8" class="edge"><title>\\VoidInsight\\Taxtotum\\Libs\\Tax&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\AbstractTax</title>
+<g id="edge9" class="edge"><title>\\VoidInsight\\Taxtotum\\Libs\\Tax&#45;&gt;\\VoidInsight\\Taxtotum\\Libs\\AbstractTax</title>
 <path fill="none" stroke="black" d="M868.824,-84C824.885,-84 735.395,-84 677.104,-84"/>
 <polygon fill="none" stroke="black" points="676.959,-80.5001 666.959,-84 676.958,-87.5001 676.959,-80.5001"/>
 </g>

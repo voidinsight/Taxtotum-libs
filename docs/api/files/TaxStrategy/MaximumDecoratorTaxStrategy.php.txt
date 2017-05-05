@@ -3,7 +3,7 @@
 namespace VoidInsight\Taxtotum\Libs\TaxStrategy;
 
 /**
- * Strategy to limit maximum tax to a defined value
+ * Strategy to limit maximum computated tax to a defined value
  * 
  */
 class MaximumDecoratorTaxStrategy extends AbstractDecoratorTaxStrategy {
