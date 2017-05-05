@@ -2,6 +2,11 @@
 
 namespace VoidInsight\Taxtotum\Libs\TaxStrategy;
 
+/**
+ * Concrete implementation.
+ * 
+ * A strategy to computate a fixed tax independently from taxable amount provided
+ */
 class FixedTaxStrategy extends AbstractTaxStrategy {
     
     /**
@@ -9,14 +14,13 @@ class FixedTaxStrategy extends AbstractTaxStrategy {
      */
     const PARAM_FIXED_VALUE = 'PARAM_FIXED_VALUE';
     
-    /**
-     * @inheritdoc
-     */
     public function calculate($taxable) {
         return $this->getParamValue(self::PARAM_FIXED_VALUE);
     }
     
     /**
+     * Accessor method to get the fixed value of tax
+     * 
      * @return float
      */
     public function getFixedTax() {
@@ -24,9 +28,11 @@ class FixedTaxStrategy extends AbstractTaxStrategy {
     }
     
     /**
+     * Accessor method to set the fixed value of tax
+     * 
      * @param float $value
      * 
-     * @return FixedTaxStrategy
+     * @return $this
      */
     public function setFixedTax($value) {
         return $this->setParamValue(self::PARAM_FIXED_VALUE, $value);

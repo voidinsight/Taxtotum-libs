@@ -2,28 +2,30 @@
 
 namespace VoidInsight\Taxtotum\Libs\TaxStrategy;
 
+/**
+ * Common ancestror for Strategies
+ * 
+ * An abstract implementation of Strategy pattern.
+ * 
+ * 
+ * @package Taxtotum\Libs\Classes\Strategy
+ */
 abstract class AbstractTaxStrategy implements TaxStrategyInterface, TaxStrategyConfInterface {
     
+    /**
+     * @internal
+     */
     private $params;
     
-    /**
-     * {@inheritdoc}
-     **/
     abstract public function calculate($taxable);
     
-    /**
-     * {@inheritdoc}
-     **/
-     public function getParamValue($paramName) {
-         return $this->params[$paramName];
-     }
-     
-     /**
-     * {@inheritdoc}
-     **/
-     public function setParamValue($paramName, $value) {
-         $this->params[$paramName] = $value;
-         
-         return $this;
-     }
+    public function getParamValue($paramName) {
+        return $this->params[$paramName];
+    }
+
+    public function setParamValue($paramName, $value) {
+        $this->params[$paramName] = $value;
+        
+        return $this;
+    }
 }
