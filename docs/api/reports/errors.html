@@ -67,7 +67,7 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="../reports/errors.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">56</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">59</span>
                                 </a>
                             </li>
                             <li>
@@ -103,12 +103,12 @@
                                                                                                     <li><a href="#AbstractTax.php"><i class="icon-file"></i> AbstractTax.php</a></li>
                                                                                                     <li><a href="#TaxStrategy/AbstractTaxStrategy.php"><i class="icon-file"></i> TaxStrategy/AbstractTaxStrategy.php</a></li>
                                                                                                     <li><a href="#TaxStrategy/TaxStrategyConfInterface.php"><i class="icon-file"></i> TaxStrategy/TaxStrategyConfInterface.php</a></li>
-                                                                                                    <li><a href="#TaxStrategy/ZeroTaxStrategy.php"><i class="icon-file"></i> TaxStrategy/ZeroTaxStrategy.php</a></li>
                                                                                                     <li><a href="#TaxStrategy/FixedTaxStrategy.php"><i class="icon-file"></i> TaxStrategy/FixedTaxStrategy.php</a></li>
                                                                                                     <li><a href="#TaxConfInterface.php"><i class="icon-file"></i> TaxConfInterface.php</a></li>
                                                                                                     <li><a href="#Tax.php"><i class="icon-file"></i> Tax.php</a></li>
                                                                                                     <li><a href="#TaxStrategy/DummyTaxStrategy.php"><i class="icon-file"></i> TaxStrategy/DummyTaxStrategy.php</a></li>
-                                                                                                    <li><a href="#TaxStrategy/RatioWithLimitTaxStrategy.php"><i class="icon-file"></i> TaxStrategy/RatioWithLimitTaxStrategy.php</a></li>
+                                                                                                    <li><a href="#TaxStrategy/AbstractDecoratorTaxStrategy.php"><i class="icon-file"></i> TaxStrategy/AbstractDecoratorTaxStrategy.php</a></li>
+                                                                                                    <li><a href="#TaxStrategy/LimitDecoratorTaxStrategy.php"><i class="icon-file"></i> TaxStrategy/LimitDecoratorTaxStrategy.php</a></li>
                                                                     </ul>
         </div>
 
@@ -411,47 +411,11 @@
                         </div>
                                     </div>
                             <div class="package-contents">
-                                            <a name="TaxStrategy/ZeroTaxStrategy.php" id="TaxStrategy/ZeroTaxStrategy.php"></a>
-                        <h3>
-                            <i class="icon-file"></i>
-                            TaxStrategy/ZeroTaxStrategy.php
-                            <small style="float: right;padding-right: 10px;">3</small>
-                        </h3>
-                        <div>
-                            <table class="table markers table-bordered">
-                                <thead>
-                                <tr>
-                                    <th>Type</th>
-                                    <th>Line</th>
-                                    <th>Description</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                                                    <tr>
-                                        <td>error</td>
-                                        <td>0</td>
-                                        <td>No summary was found for this file</td>
-                                    </tr>
-                                                                    <tr>
-                                        <td>error</td>
-                                        <td>5</td>
-                                        <td>No summary for class \VoidInsight\Taxtotum\Libs\TaxStrategy\ZeroTaxStrategy</td>
-                                    </tr>
-                                                                    <tr>
-                                        <td>error</td>
-                                        <td>10</td>
-                                        <td>Argument $taxable is missing from the Docblock of calculate</td>
-                                    </tr>
-                                                            </tbody>
-                            </table>
-                        </div>
-                                    </div>
-                            <div class="package-contents">
                                             <a name="TaxStrategy/FixedTaxStrategy.php" id="TaxStrategy/FixedTaxStrategy.php"></a>
                         <h3>
                             <i class="icon-file"></i>
                             TaxStrategy/FixedTaxStrategy.php
-                            <small style="float: right;padding-right: 10px;">4</small>
+                            <small style="float: right;padding-right: 10px;">6</small>
                         </h3>
                         <div>
                             <table class="table markers table-bordered">
@@ -482,6 +446,16 @@
                                         <td>error</td>
                                         <td>15</td>
                                         <td>No summary for method calculate()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>22</td>
+                                        <td>No summary for method getFixedTax()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>31</td>
+                                        <td>No summary for method setFixedTax()</td>
                                     </tr>
                                                             </tbody>
                             </table>
@@ -601,10 +575,51 @@
                         </div>
                                     </div>
                             <div class="package-contents">
-                                            <a name="TaxStrategy/RatioWithLimitTaxStrategy.php" id="TaxStrategy/RatioWithLimitTaxStrategy.php"></a>
+                                            <a name="TaxStrategy/AbstractDecoratorTaxStrategy.php" id="TaxStrategy/AbstractDecoratorTaxStrategy.php"></a>
                         <h3>
                             <i class="icon-file"></i>
-                            TaxStrategy/RatioWithLimitTaxStrategy.php
+                            TaxStrategy/AbstractDecoratorTaxStrategy.php
+                            <small style="float: right;padding-right: 10px;">4</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5</td>
+                                        <td>No summary for class \VoidInsight\Taxtotum\Libs\TaxStrategy\AbstractDecoratorTaxStrategy</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>15</td>
+                                        <td>No summary for method getDecoratedStrategy()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>24</td>
+                                        <td>No summary for method setDecoratedStrategy()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="TaxStrategy/LimitDecoratorTaxStrategy.php" id="TaxStrategy/LimitDecoratorTaxStrategy.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            TaxStrategy/LimitDecoratorTaxStrategy.php
                             <small style="float: right;padding-right: 10px;">6</small>
                         </h3>
                         <div>
@@ -625,27 +640,27 @@
                                                                     <tr>
                                         <td>error</td>
                                         <td>5</td>
-                                        <td>No summary for class \VoidInsight\Taxtotum\Libs\TaxStrategy\RatioWithLimitTaxStrategy</td>
+                                        <td>No summary for class \VoidInsight\Taxtotum\Libs\TaxStrategy\LimitDecoratorTaxStrategy</td>
                                     </tr>
                                                                     <tr>
                                         <td>error</td>
                                         <td>15</td>
+                                        <td>No summary for method getTaxLimit()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>24</td>
+                                        <td>No summary for method setTaxLimit()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>33</td>
                                         <td>Argument $taxable is missing from the Docblock of calculate</td>
                                     </tr>
                                                                     <tr>
                                         <td>error</td>
-                                        <td>15</td>
+                                        <td>33</td>
                                         <td>No summary for method calculate()</td>
-                                    </tr>
-                                                                    <tr>
-                                        <td>error</td>
-                                        <td>29</td>
-                                        <td>No summary for method getTaxLimitValue()</td>
-                                    </tr>
-                                                                    <tr>
-                                        <td>error</td>
-                                        <td>37</td>
-                                        <td>No summary for method setTaxLimitValue()</td>
                                     </tr>
                                                             </tbody>
                             </table>
@@ -691,7 +706,7 @@
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on May 4th, 2017 at 17:16.
+                    on May 5th, 2017 at 11:59.
                 </section>
             </section>
         </section>
