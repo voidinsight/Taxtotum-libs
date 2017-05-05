@@ -2,6 +2,10 @@
 
 namespace VoidInsight\Taxtotum\Libs\TaxStrategy;
 
+/**
+ * Strategy to limit minimum computated tax to a minimum value
+ * 
+ */
 class MinimumDecoratorTaxStrategy extends AbstractDecoratorTaxStrategy {
     
     /**
@@ -31,13 +35,7 @@ class MinimumDecoratorTaxStrategy extends AbstractDecoratorTaxStrategy {
      * @inheritdoc
      */
     public function calculate($taxable) {
-        $tax = $this->getDecoratedStrategy()->calculate($taxable);
-        $minimum = $this->getTaxMinimum();
-        
-        if($tax < $minimum) {
-            $tax = $minimum;
-        }
-        
-        return $tax;
+        return max($this->getDecoratedStrategy()->calculate($taxable),
+                    $this->getTaxMinimum());
     }
 }
