@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+  <title>Taxtotum Libs</title>
+  
+  <parser>
+    <target>docs/api</target>
+  </parser>
+  
+  <transformer>
+    <target>docs/api</target>
+  </transformer>
+  
+  <files>
+    <directory>src</directory>
+  </files>
+  
+  <transformations>
+    <template name="responsive-twig" />
+</transformations>
+</phpdoc>
