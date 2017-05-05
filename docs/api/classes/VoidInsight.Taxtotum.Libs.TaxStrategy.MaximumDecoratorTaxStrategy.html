@@ -120,20 +120,20 @@
             <i class="icon-custom icon-method"></i> Methods
             <ul>
                                                                                                     <li class="method public inherited">
-        <a href="#method_calculate" title="calculate :: ">
-            <span class="description"></span><pre>calculate</pre>
+        <a href="#method_calculate" title="calculate :: Implementation of strategy">
+            <span class="description">Implementation of strategy</span><pre>calculate</pre>
         </a>
     </li>
 
                                                                                                         <li class="method public inherited">
-        <a href="#method_getDecoratedStrategy" title="getDecoratedStrategy :: ">
-            <span class="description"></span><pre>getDecoratedStrategy</pre>
+        <a href="#method_getDecoratedStrategy" title="getDecoratedStrategy :: Accessor method to get the Decorated Strategy Object">
+            <span class="description">Accessor method to get the Decorated Strategy Object</span><pre>getDecoratedStrategy</pre>
         </a>
     </li>
 
                                                                                                         <li class="method public inherited">
-        <a href="#method_getParamValue" title="getParamValue :: ">
-            <span class="description"></span><pre>getParamValue</pre>
+        <a href="#method_getParamValue" title="getParamValue :: Accessor method to read a custom param">
+            <span class="description">Accessor method to read a custom param</span><pre>getParamValue</pre>
         </a>
     </li>
 
@@ -144,14 +144,14 @@
     </li>
 
                                                                                                         <li class="method public inherited">
-        <a href="#method_setDecoratedStrategy" title="setDecoratedStrategy :: ">
-            <span class="description"></span><pre>setDecoratedStrategy</pre>
+        <a href="#method_setDecoratedStrategy" title="setDecoratedStrategy :: Accessor method to set the Decorated Strategy object">
+            <span class="description">Accessor method to set the Decorated Strategy object</span><pre>setDecoratedStrategy</pre>
         </a>
     </li>
 
                                                                                                         <li class="method public inherited">
-        <a href="#method_setParamValue" title="setParamValue :: ">
-            <span class="description"></span><pre>setParamValue</pre>
+        <a href="#method_setParamValue" title="setParamValue :: Accessor method to write a custom param">
+            <span class="description">Accessor method to write a custom param</span><pre>setParamValue</pre>
         </a>
     </li>
 
@@ -190,7 +190,8 @@
                 <p class="short_description">Strategy to limit maximum computated tax to a defined value</p>
                 <div class="details">
                     <div class="long_description">
-                        
+                        <p>Decorator pattern is used to adjust computation algorithm of Strategy and
+reduce numbers of Strategy needed.</p>
                     </div>
                     <table class="table table-bordered">
                                                                                     <tr>
@@ -207,7 +208,7 @@
                     <h3><i class="icon-custom icon-method"></i> Methods</h3>
                                                                 <a id="method_calculate"></a>
                         <div class="element clickable method public  method_calculate inherited" data-toggle="collapse" data-target=".method_calculate .collapse">
-                            <h2>calculate</h2>
+                            <h2>Implementation of strategy</h2>
                             <pre>calculate(float $taxable) : float</pre>
                             <div class="labels">
                                 <span class="label">inherited</span>                                                                                                <span class="label">abstract</span>                                                            </div>
@@ -248,7 +249,7 @@
                         </div>
                                             <a id="method_getDecoratedStrategy"></a>
                         <div class="element clickable method public  method_getDecoratedStrategy inherited" data-toggle="collapse" data-target=".method_getDecoratedStrategy .collapse">
-                            <h2>getDecoratedStrategy</h2>
+                            <h2>Accessor method to get the Decorated Strategy Object</h2>
                             <pre>getDecoratedStrategy() : \VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyInterface</pre>
                             <div class="labels">
                                 <span class="label">inherited</span>                                                                                                                                                            </div>
@@ -277,7 +278,7 @@
                         </div>
                                             <a id="method_getParamValue"></a>
                         <div class="element clickable method public  method_getParamValue inherited" data-toggle="collapse" data-target=".method_getParamValue .collapse">
-                            <h2>getParamValue</h2>
+                            <h2>Accessor method to read a custom param</h2>
                             <pre>getParamValue(string $paramName) : mixed</pre>
                             <div class="labels">
                                 <span class="label">inherited</span>                                                                                                                                                            </div>
@@ -347,7 +348,7 @@
                         </div>
                                             <a id="method_setDecoratedStrategy"></a>
                         <div class="element clickable method public  method_setDecoratedStrategy inherited" data-toggle="collapse" data-target=".method_setDecoratedStrategy .collapse">
-                            <h2>setDecoratedStrategy</h2>
+                            <h2>Accessor method to set the Decorated Strategy object</h2>
                             <pre>setDecoratedStrategy(\VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyInterface $strategy) : $this</pre>
                             <div class="labels">
                                 <span class="label">inherited</span>                                                                                                                                                            </div>
@@ -374,8 +375,8 @@
                         </div>
                                             <a id="method_setParamValue"></a>
                         <div class="element clickable method public  method_setParamValue inherited" data-toggle="collapse" data-target=".method_setParamValue .collapse">
-                            <h2>setParamValue</h2>
-                            <pre>setParamValue(string $paramName, mixed $value) : \VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyBuilderInterface</pre>
+                            <h2>Accessor method to write a custom param</h2>
+                            <pre>setParamValue(string $paramName, mixed $value) : $this</pre>
                             <div class="labels">
                                 <span class="label">inherited</span>                                                                                                                                                            </div>
 
@@ -412,7 +413,7 @@
                                             </div>
                                                                             
                                                                             <h3>Response</h3>
-                                        <code>\VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyBuilderInterface</code><p></p>
+                                        <code>$this</code><p></p>
                                                                     </div>
                             </div>
 
@@ -446,33 +447,7 @@
                         </div>
                     
                     
-                                                                <h3><i class="icon-custom icon-property"></i> Properties</h3>
-                                                    <a id="property_params"> </a>
-                            <div class="element clickable property  private property_params inherited" data-toggle="collapse" data-target=".property_params .collapse">
-                                <h2>params</h2>
-                                <pre>params : </pre>
-                                <div class="labels">
-                                    <span class="label">inherited</span>                                                                    </div>
-                                <div class="row collapse">
-                                    <div class="detail-description">
-                                        <div class="long_description"></div>
-
-                                        <table class="table">
-                                                                                            <tr>
-                                                    <th>
-                                                        
-                                                    </th>
-                                                    <td>
-                                                                                                            </td>
-                                                </tr>
-                                                                                    </table>
-
-                                                                                    <h3>Type(s)</h3>
-                                            <code></code>
-                                                                            </div>
-                                </div>
-                            </div>
-                                                            </div>
+                                                        </div>
             </div>
             <a id="\VoidInsight\Taxtotum\Libs\TaxStrategy\MaximumDecoratorTaxStrategy"></a>
             <ul class="breadcrumb">
@@ -492,7 +467,7 @@
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Fri, 05 May 2017 14:25:32 +0000.<br/>
+            generated on Fri, 05 May 2017 14:37:37 +0000.<br/>
     </footer>
     </body>
 </html>
