@@ -1,60 +1,62 @@
 <?php
+
 namespace VoidInsight\Taxtotum\Test;
 
 use VoidInsight\Taxtotum\Libs\Tax;
 use VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyInterface;
 
-
-trait TaxTestTrait {
-    
+trait TaxTestTrait
+{
     /**
      * @depends testParamsAreSettable
-     * 
+     *
      * @dataProvider strategyDataProvider
      */
-    public function testStrategyAttributeIsSettable(TaxStrategyInterface $strategy) {
+    public function testStrategyAttributeIsSettable(TaxStrategyInterface $strategy)
+    {
         $sut = $this->getMockBuilder(Tax::class)
                             ->setMethods(null)
                             ->getMock();
-        
+
         $this->assertSame($sut, $sut->setStrategy($strategy));
         $this->assertSame($strategy, $sut->getStrategy());
     }
-    
-    public function strategyDataProvider() {
+
+    public function strategyDataProvider()
+    {
         return [
-            [$this->getMock(TaxStrategyInterface::class)]
+            [$this->getMock(TaxStrategyInterface::class)],
         ];
     }
-    
+
     /**
      * @depends testStrategyAttributeIsSettable
-     * 
+     *
      * @dataProvider calculateDataProvider
      **/
-    public function testTaxIsCalculateUsingAStrategy($taxable, $tax) {
-        
+    public function testTaxIsCalculateUsingAStrategy($taxable, $tax)
+    {
         //Create a mock for TaxStrategyInterface
         $strategy = $this->getMock(TaxStrategyInterface::class);
         $strategy->expects($this->once())
             ->method('calculate')
             ->will($this->returnValue($tax));
-        
+
         //Create a mock for Tax to test
         $sut = $this->getMockBuilder(Tax::class)
                             ->setMethods(null)
                             ->getMock()
                     ->setStrategy($strategy);
-            
+
         $this->assertSame($tax, $sut->calculate());
     }
-    
-    public function calculateDataProvider() {
+
+    public function calculateDataProvider()
+    {
         return [
             [0.0, 0.0],
             [10.0, 10.0],
-            [100, 25]
+            [100, 25],
         ];
     }
-    
 }
