@@ -1,2 +1,2 @@
-presets: symfony
+preset: symfony
 risky: false
