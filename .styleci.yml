@@ -1,2 +1,9 @@
 preset: symfony
 risky: true
+
+finder:
+    path:
+        - "src"
+        - "test"
+    name:
+        - "*.php"
