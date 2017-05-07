@@ -5,48 +5,43 @@ namespace VoidInsight\Taxtotum\Libs;
 use VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyInterface;
 
 /**
- * Concrete Tax
- * 
+ * Concrete Tax.
+ *
  * A concrete implementation of Tax class. Using Strategy pattern to computate
  * tax value
- * 
- * @package Taxtotum\Libs\Classes
  */
-class Tax extends AbstractTax {
-    
+class Tax extends AbstractTax
+{
     /**
      * @internal
      */
     const PARAM_STRATEGY = 'PARAM_STRATEGY';
-    
+
     /**
-     * Accessor method to get the Strategy implementation
-     * 
-     * 
+     * Accessor method to get the Strategy implementation.
      */
-    public function getStrategy() {
+    public function getStrategy()
+    {
         return $this->getParamValue(self::PARAM_STRATEGY);
     }
-    
+
     /**
-     * Accessor method to set the Strategy implementation
-     * 
-     * 
+     * Accessor method to set the Strategy implementation.
      */
-    public function setStrategy(TaxStrategyInterface $strategy) {
+    public function setStrategy(TaxStrategyInterface $strategy)
+    {
         $this->setParamValue(self::PARAM_STRATEGY, $strategy);
-        
+
         return $this;
     }
-    
+
     /**
-     * Concrete implementation
-     * 
+     * Concrete implementation.
+     *
      * Call calculate method of Strategy implementation
-     * 
-     * 
      */
-    public function calculate() {
+    public function calculate()
+    {
         return
             $this->getStrategy()->calculate($this->getTaxable());
     }

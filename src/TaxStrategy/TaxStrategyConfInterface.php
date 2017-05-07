@@ -3,30 +3,27 @@
 namespace VoidInsight\Taxtotum\Libs\TaxStrategy;
 
 /**
- * Strategy Configuration Interface
- * 
+ * Strategy Configuration Interface.
+ *
  * An interface to configure a specific strategy
- * 
- * 
- * @package Taxtotum\Libs\Interfaces\Strategy
  */
-interface TaxStrategyConfInterface {
-    
+interface TaxStrategyConfInterface
+{
     /**
-     * Accessor method to read a custom param
-     * 
+     * Accessor method to read a custom param.
+     *
      * @param string $paramName
-     * 
+     *
      * @return mixed
      */
     public function getParamValue($paramName);
-    
+
     /**
-     * Accessor method to write a custom param
-     * 
+     * Accessor method to write a custom param.
+     *
      * @param string $paramName
-     * @param mixed $value
-     * 
+     * @param mixed  $value
+     *
      * @return $this
      */
     public function setParamValue($paramName, $value);
