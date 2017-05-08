@@ -1,7 +1,7 @@
 language: php
 
 before_script:
- - composer self-update
+ - composer self-update --dev
  
 script:
  - vendor/bin/phpunit
