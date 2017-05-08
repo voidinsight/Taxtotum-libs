@@ -46,6 +46,7 @@ trait TaxTestTrait
         $sut = $this->getMockBuilder(Tax::class)
                             ->setMethods(null)
                             ->getMock()
+                    ->setTaxable($taxable)
                     ->setStrategy($strategy);
 
         $this->assertSame($tax, $sut->calculate());
