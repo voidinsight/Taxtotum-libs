@@ -2,6 +2,11 @@
 
 namespace VoidInsight\Taxtotum\Libs;
 
+use VoidInsight\Taxtotum\Libs\TaxData\TaxData;
+use VoidInsight\Taxtotum\Libs\TaxData\TaxDataInterface;
+
+use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
+
 /**
  * Base Abstract implementation Tax.
  *
@@ -16,19 +21,64 @@ abstract class AbstractTax implements TaxInterface, TaxConfInterface
 
     /**
      * @internal
+     * 
+     * @var PropertyAccessorInterface
+     */
+    private $accessor;
+
+    /**
+     * @return PropertyAccessorInterface
+     */
+    public function getAccessor() {
+        return $this->accessor;
+    }
+    
+    /**
+     * @param PropertyAccessorInterface $accessor
+     * 
+     * @return $this
+     */
+    public function setAccessor(PropertyAccessorInterface $accessor) {
+        $this->accessor = $accessor;
+        
+        return $this;
+    }
+    
+    /**
+     * @internal
      *
-     * @var array
+     * @var TaxDataInterface
      */
     private $params;
-
+    
+    /**
+     * @return TaxDataInterface
+     */
+    public function getData() {
+        return $this->params;
+    }
+    
+    /**
+     * @param TaxDataInterface $taxData
+     * 
+     * @return $this
+     */
+    public function setData(TaxDataInterface $taxData) {
+        $this->params = $taxData;
+        
+        return $this;
+    }
+    
     public function getParamValue($paramName)
     {
-        return $this->params[$paramName];
+        return $this->getAccessor()
+                        ->getValue($this->getData(), $paramName);
     }
 
     public function setParamValue($paramName, $value)
     {
-        $this->params[$paramName] = $value;
+        $this->getAccessor()
+                        ->setValue($this->getData(), $paramName, $value);
 
         return $this;
     }
@@ -46,9 +96,4 @@ abstract class AbstractTax implements TaxInterface, TaxConfInterface
     }
 
     abstract public function calculate();
-
-    public function __construct()
-    {
-        $this->params = array();
-    }
 }

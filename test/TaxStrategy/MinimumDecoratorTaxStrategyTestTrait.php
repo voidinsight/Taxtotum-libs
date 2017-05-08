@@ -5,6 +5,9 @@ namespace VoidInsight\Taxtotum\Test\TaxStrategy;
 use VoidInsight\Taxtotum\Libs\TaxStrategy\MinimumDecoratorTaxStrategy;
 use VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyInterface;
 
+use VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyData\TaxStrategyData;
+use Symfony\Component\PropertyAccess\PropertyAccessor;
+
 trait MinimumDecoratorTaxStrategyTestTrait
 {
     /**
@@ -17,7 +20,8 @@ trait MinimumDecoratorTaxStrategyTestTrait
         $sut = $this->getMockBuilder(MinimumDecoratorTaxStrategy::class)
                         ->setMethods(null)
                         ->getMock();
-
+        $sut->setData(new TaxStrategyData)->setAccessor(new PropertyAccessor);
+        
         $this->assertSame($sut, $sut->setTaxMinimum($minimum));
         $this->assertSame($minimum, $sut->getTaxMinimum());
     }
@@ -46,6 +50,7 @@ trait MinimumDecoratorTaxStrategyTestTrait
         $sut = $this->getMockBuilder(MinimumDecoratorTaxStrategy::class)
                         ->setMethods(null)
                         ->getMock();
+        $sut->setData(new TaxStrategyData)->setAccessor(new PropertyAccessor);
         $sut->setDecoratedStrategy($strategy);
         $sut->setTaxMinimum($minimum);
 
