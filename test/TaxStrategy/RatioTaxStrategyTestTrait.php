@@ -4,7 +4,6 @@ namespace VoidInsight\Taxtotum\Test\TaxStrategy;
 
 use VoidInsight\Taxtotum\Libs\TaxStrategy\RatioTaxStrategy;
 use VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyInterface;
-
 use VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyData\TaxStrategyData;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 
@@ -20,8 +19,8 @@ trait RatioTaxStrategyTestTrait
         $sut = $this->getMockBuilder(RatioTaxStrategy::class)
                         ->setMethods(null)
                         ->getMock();
-        $sut->setData(new TaxStrategyData)->setAccessor(new PropertyAccessor);
-        
+        $sut->setData(new TaxStrategyData())->setAccessor(new PropertyAccessor());
+
         $this->assertInstanceOf(RatioTaxStrategy::class, $sut);
         $this->assertSame($sut, $sut->setRatioValue($ratio));
         $this->assertSame($ratio, $sut->getRatioValue());
@@ -43,7 +42,7 @@ trait RatioTaxStrategyTestTrait
         $sut = $this->getMockBuilder(RatioTaxStrategy::class)
                                         ->setMethods(null)
                                         ->getMock();
-        $sut->setData(new TaxStrategyData)->setAccessor(new PropertyAccessor);
+        $sut->setData(new TaxStrategyData())->setAccessor(new PropertyAccessor());
         $sut->setRatioValue($ratio);
 
         $this->assertInstanceOf(TaxStrategyInterface::class, $sut);
