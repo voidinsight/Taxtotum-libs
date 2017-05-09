@@ -62,12 +62,15 @@ abstract class AbstractTaxStrategy implements TaxStrategyInterface, TaxStrategyC
     
     public function getParamValue($paramName)
     {
-        return $this->getAccessor()->getValue($this->getData(), $paramName);
+        $data = $this->getData();
+        
+        return $this->getAccessor()->getValue($data, $paramName);
     }
 
     public function setParamValue($paramName, $value)
     {
-        $this->getAccessor()->setValue($this->getData(), $paramName, $value);
+        $data = $this->getData();
+        $this->getAccessor()->setValue($data, $paramName, $value);
 
         return $this;
     }
