@@ -20,50 +20,54 @@ abstract class AbstractTaxStrategy implements TaxStrategyInterface, TaxStrategyC
     /**
      * @return TaxStrategyDataInterface
      */
-    public function getData() {
+    public function getData()
+    {
         return $this->params;
     }
-    
+
     /**
      * @param TaxStrategyDataInterface $data
-     * 
+     *
      * @return $this
      */
-    public function setData(TaxStrategyDataInterface $data) {
+    public function setData(TaxStrategyDataInterface $data)
+    {
         $this->params = $data;
-        
+
         return $this;
     }
 
     /**
      * @internal
-     * 
+     *
      * @var PropertyAccessorInterface
      */
     private $accessor;
-    
+
     /**
      * @return PropertyAccessorInterface
      */
-    public function getAccessor() {
+    public function getAccessor()
+    {
         return $this->accessor;
     }
-    
+
     /**
      * @param PropertyAccessorInterface $accessor
-     * 
+     *
      * @return $this
      */
-    public function setAccessor(PropertyAccessorInterface $accessor) {
+    public function setAccessor(PropertyAccessorInterface $accessor)
+    {
         $this->accessor = $accessor;
-        
+
         return $this;
     }
-    
+
     public function getParamValue($paramName)
     {
         $data = $this->getData();
-        
+
         return $this->getAccessor()->getValue($data, $paramName);
     }
 
@@ -74,6 +78,6 @@ abstract class AbstractTaxStrategy implements TaxStrategyInterface, TaxStrategyC
 
         return $this;
     }
-    
+
     abstract public function calculate($taxable);
 }
