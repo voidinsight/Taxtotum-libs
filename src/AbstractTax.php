@@ -77,8 +77,9 @@ abstract class AbstractTax implements TaxInterface, TaxConfInterface
 
     public function setParamValue($paramName, $value)
     {
+        $data = $this->getData();
         $this->getAccessor()
-                        ->setValue($this->getData(), $paramName, $value);
+                        ->setValue($data, $paramName, $value);
 
         return $this;
     }
