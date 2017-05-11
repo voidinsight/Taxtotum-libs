@@ -4,7 +4,6 @@ namespace VoidInsight\Taxtotum\Test\TaxStrategy;
 
 use VoidInsight\Taxtotum\Libs\TaxStrategy\FixedTaxStrategy;
 use VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyInterface;
-
 use VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyData\TaxStrategyData;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 
@@ -13,18 +12,19 @@ trait FixedTaxStrategyTestTrait
     /**
      * @depends testDataIsSettable
      * @depends testAccessorIsSettable
-     * 
-     * @expectedException VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException
+     *
+     * @expectedException \VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException
      */
-    public function testExceptionForFixedTaxValueNotSetted() {
+    public function testExceptionForFixedTaxValueNotSetted()
+    {
         $sut = $this->getMockBuilder(FixedTaxStrategy::class)
                         ->setMethods(null)
                         ->getMock();
-        $sut->setData(new TaxStrategyData)->setAccessor(new PropertyAccessor);
-        
+        $sut->setData(new TaxStrategyData())->setAccessor(new PropertyAccessor());
+
         $sut->getFixedTax();
     }
-    
+
     /**
      * @depends testDataIsSettable
      * @depends testAccessorIsSettable
@@ -38,7 +38,7 @@ trait FixedTaxStrategyTestTrait
         $sut = $this->getMockBuilder(FixedTaxStrategy::class)
                         ->setMethods(null)
                         ->getMock();
-        $sut->setData(new TaxStrategyData)->setAccessor(new PropertyAccessor);
+        $sut->setData(new TaxStrategyData())->setAccessor(new PropertyAccessor());
 
         $this->assertSame($sut, $sut->setFixedTax($value));
         $this->assertSame($value, $sut->getFixedTax());
@@ -61,8 +61,8 @@ trait FixedTaxStrategyTestTrait
         $sut = $this->getMockBuilder(FixedTaxStrategy::class)
                         ->setMethods(null)
                         ->getMock();
-        $sut->setData(new TaxStrategyData)->setAccessor(new PropertyAccessor);
-        
+        $sut->setData(new TaxStrategyData())->setAccessor(new PropertyAccessor());
+
         $sut->setFixedTax($value);
 
         $this->assertInstanceOf(TaxStrategyInterface::class, $sut);
