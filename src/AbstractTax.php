@@ -2,12 +2,9 @@
 
 namespace VoidInsight\Taxtotum\Libs;
 
-use VoidInsight\Taxtotum\Libs\TaxData\TaxData;
 use VoidInsight\Taxtotum\Libs\TaxData\TaxDataInterface;
-
 use VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException;
 use VoidInsight\Taxtotum\Libs\Exception\Runtime\ValueNotSettedException;
-
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 use Symfony\Component\PropertyAccess\Exception\AccessException;
 
@@ -25,7 +22,7 @@ abstract class AbstractTax implements TaxInterface, TaxConfInterface
 
     /**
      * @internal
-     * 
+     *
      * @var PropertyAccessorInterface
      */
     private $accessor;
@@ -33,65 +30,69 @@ abstract class AbstractTax implements TaxInterface, TaxConfInterface
     /**
      * @return PropertyAccessorInterface
      */
-    public function getAccessor() {
+    public function getAccessor()
+    {
         $accessor = $this->accessor;
-        
-        if(!is_a($accessor, PropertyAccessorInterface::class)) {
+
+        if (!is_a($accessor, PropertyAccessorInterface::class)) {
             throw new ItemNotSettedException('Accessor not setted');
         }
-        
+
         return $accessor;
     }
-    
+
     /**
      * @param PropertyAccessorInterface $accessor
-     * 
+     *
      * @return $this
      */
-    public function setAccessor(PropertyAccessorInterface $accessor) {
+    public function setAccessor(PropertyAccessorInterface $accessor)
+    {
         $this->accessor = $accessor;
-        
+
         return $this;
     }
-    
+
     /**
      * @internal
      *
      * @var TaxDataInterface
      */
     private $params;
-    
+
     /**
      * @return TaxDataInterface
      */
-    public function getData() {
+    public function getData()
+    {
         $data = $this->params;
-        
-        if(!is_a($data, TaxDataInterface::class)) {
+
+        if (!is_a($data, TaxDataInterface::class)) {
             throw new ItemNotSettedException('Data not setted');
         }
-        
+
         return $data;
     }
-    
+
     /**
      * @param TaxDataInterface $taxData
-     * 
+     *
      * @return $this
      */
-    public function setData(TaxDataInterface $taxData) {
+    public function setData(TaxDataInterface $taxData)
+    {
         $this->params = $taxData;
-        
+
         return $this;
     }
-    
+
     public function getParamValue($paramName)
     {
         try {
             $data = $this->getData();
             $accessor = $this->getAccessor();
+
             return $accessor->getValue($data, $paramName);
-            
         } catch (AccessException $exception) {
             throw new ValueNotSettedException(
                 'Value not setted', 0, $exception);
@@ -110,11 +111,9 @@ abstract class AbstractTax implements TaxInterface, TaxConfInterface
     {
         try {
             return $this->getParamValue(self::PARAM_TAXABLE);
-            
-        } catch(ValueNotSettedException $exception) {
+        } catch (ValueNotSettedException $exception) {
             throw new ItemNotSettedException(
                 'No taxable amount setted', 0, $exception);
-            
         }
     }
 

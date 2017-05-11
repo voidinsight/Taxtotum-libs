@@ -4,7 +4,6 @@ namespace VoidInsight\Taxtotum\Test\TaxStrategy;
 
 use VoidInsight\Taxtotum\Libs\TaxStrategy\MaximumDecoratorTaxStrategy;
 use VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyInterface;
-
 use VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyData\TaxStrategyData;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 
@@ -13,18 +12,19 @@ trait MaximumDecoratorTaxStrategyTestTrait
     /**
      * @depends testDataIsSettable
      * @depends testAccessorIsSettable
-     * 
-     * @expectedException VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException
+     *
+     * @expectedException \VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException
      */
-    public function testExceptionForTaxMaximumNotSetted() {
+    public function testExceptionForTaxMaximumNotSetted()
+    {
         $sut = $this->getMockBuilder(MaximumDecoratorTaxStrategy::class)
                         ->setMethods(null)
                         ->getMock();
-        $sut->setData(new TaxStrategyData)->setAccessor(new PropertyAccessor);
-        
+        $sut->setData(new TaxStrategyData())->setAccessor(new PropertyAccessor());
+
         $sut->getTaxMaximum();
     }
-    
+
     /**
      * @depends testDecoratedStrategyIsSettable
      * @depends testExceptionForTaxMaximumNotSetted
@@ -36,8 +36,8 @@ trait MaximumDecoratorTaxStrategyTestTrait
         $sut = $this->getMockBuilder(MaximumDecoratorTaxStrategy::class)
                         ->setMethods(null)
                         ->getMock();
-        $sut->setData(new TaxStrategyData)->setAccessor(new PropertyAccessor);
-        
+        $sut->setData(new TaxStrategyData())->setAccessor(new PropertyAccessor());
+
         $this->assertSame($sut, $sut->setTaxMaximum($maximum));
         $this->assertSame($maximum, $sut->getTaxMaximum());
     }
@@ -66,7 +66,7 @@ trait MaximumDecoratorTaxStrategyTestTrait
         $sut = $this->getMockBuilder(MaximumDecoratorTaxStrategy::class)
                         ->setMethods(null)
                         ->getMock();
-        $sut->setData(new TaxStrategyData)->setAccessor(new PropertyAccessor);
+        $sut->setData(new TaxStrategyData())->setAccessor(new PropertyAccessor());
         $sut->setDecoratedStrategy($strategy);
         $sut->setTaxMaximum($maximum);
 
