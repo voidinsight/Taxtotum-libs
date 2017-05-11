@@ -11,7 +11,23 @@ use Symfony\Component\PropertyAccess\PropertyAccessor;
 trait RatioTaxStrategyTestTrait
 {
     /**
+     * @depends testDataIsSettable
+     * @depends testAccessorIsSettable
+     * 
+     * @expectedException VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException
+     */
+    public function testExceptionForRatioValueNotSetted() {
+        $sut = $this->getMockBuilder(RatioTaxStrategy::class)
+                        ->setMethods(null)
+                        ->getMock();
+        $sut->setData(new TaxStrategyData)->setAccessor(new PropertyAccessor);
+        
+        $sut->getRatioValue();
+    }
+    
+    /**
      * @depends testParamsAreSettable
+     * @depends testExceptionForRatioValueNotSetted
      *
      * @dataProvider ratioDataProvider
      */

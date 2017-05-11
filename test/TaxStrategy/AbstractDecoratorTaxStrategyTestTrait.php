@@ -11,7 +11,18 @@ use Symfony\Component\PropertyAccess\PropertyAccessor;
 trait AbstractDecoratorTaxStrategyTestTrait
 {
     /**
+     * @expectedException VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException
+     */
+    public function testExceptioForDecoratedStrategyNotSetted() {
+        $sut = $this->getMockForAbstractClass(AbstractDecoratorTaxStrategy::class);
+        $sut->setData(new TaxStrategyData)->setAccessor(new PropertyAccessor);
+        
+        $sut->getDecoratedStrategy();
+    }
+    
+    /**
      * @depends testParamsAreSettable
+     * @depends testExceptioForDecoratedStrategyNotSetted
      */
     public function testDecoratedStrategyIsSettable()
     {

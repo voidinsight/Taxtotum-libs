@@ -12,6 +12,19 @@ use Symfony\Component\PropertyAccess\PropertyAccessor;
 
 trait AbstractTaxTestTrait
 {
+    
+    /**
+     * @expectedException VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException
+     */
+    public function testExceptionForAccessorNotSetted() {
+        $sut = $this->getMockForAbstractClass(AbstractTax::class);
+        
+        $sut->getAccessor();
+    }
+    
+    /**
+     * @depends testExceptionForAccessorNotSetted
+     */
     public function testAccessorInterfaceIsSettable() {
         $sut = $this->getMockForAbstractClass(AbstractTax::class);
         
@@ -21,6 +34,18 @@ trait AbstractTaxTestTrait
         $this->assertSame($accessor, $sut->getAccessor());
     }
     
+    /**
+     * @expectedException VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException
+     */
+     public function testExceptionForDataNotSetted() {
+        $sut = $this->getMockForAbstractClass(AbstractTax::class);
+        
+        $sut->getData();
+     }
+     
+    /**
+     * @depends testExceptionForDataNotSetted
+     */
     public function testDataInterfaceIsSettable() {
         $sut = $this->getMockForAbstractClass(AbstractTax::class);
         
@@ -33,6 +58,20 @@ trait AbstractTaxTestTrait
     /**
      * @depends testAccessorInterfaceIsSettable
      * @depends testDataInterfaceIsSettable
+     * 
+     * @expectedException VoidInsight\Taxtotum\Libs\Exception\Runtime\ValueNotSettedException
+     */
+    public function testExceptionForParamValueNotSetted() {
+        $sut = $this->getMockForAbstractClass(AbstractTax::class);
+        $sut->setData(new TaxData)->setAccessor(new PropertyAccessor);
+        
+        $sut->getParamValue('no_exists_param');
+    }
+    
+    /**
+     * @depends testAccessorInterfaceIsSettable
+     * @depends testDataInterfaceIsSettable
+     * @depends testExceptionForParamValueNotSetted
      * 
      * @dataProvider paramsDataProvider
      */
@@ -50,6 +89,18 @@ trait AbstractTaxTestTrait
         return [
             ['test_param', 'test_value'],
         ];
+    }
+    
+    /**
+     * @depends testParamsAreSettable
+     * 
+     * @expectedException VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException
+     */
+    public function testTaxableReturnADefaultValue() {
+        $sut = $this->getMockForAbstractClass(AbstractTax::class);
+        $sut->setData(new TaxData)->setAccessor(new PropertyAccessor);
+        
+        $sut->getTaxable();
     }
 
     /**

@@ -11,7 +11,23 @@ use Symfony\Component\PropertyAccess\PropertyAccessor;
 trait MaximumDecoratorTaxStrategyTestTrait
 {
     /**
+     * @depends testDataIsSettable
+     * @depends testAccessorIsSettable
+     * 
+     * @expectedException VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException
+     */
+    public function testExceptionForTaxMaximumNotSetted() {
+        $sut = $this->getMockBuilder(MaximumDecoratorTaxStrategy::class)
+                        ->setMethods(null)
+                        ->getMock();
+        $sut->setData(new TaxStrategyData)->setAccessor(new PropertyAccessor);
+        
+        $sut->getTaxMaximum();
+    }
+    
+    /**
      * @depends testDecoratedStrategyIsSettable
+     * @depends testExceptionForTaxMaximumNotSetted
      *
      * @dataProvider taxmaximumDataProvider
      */

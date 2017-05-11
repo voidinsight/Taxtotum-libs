@@ -11,8 +11,24 @@ use Symfony\Component\PropertyAccess\PropertyAccessor;
 trait MinimumDecoratorTaxStrategyTestTrait
 {
     /**
+     * @depends testDataIsSettable
+     * @depends testAccessorIsSettable
+     * 
+     * @expectedException VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException
+     */
+    public function testExceptionForTaxMinimumNotSetted() {
+        $sut = $this->getMockBuilder(MinimumDecoratorTaxStrategy::class)
+                        ->setMethods(null)
+                        ->getMock();
+        $sut->setData(new TaxStrategyData)->setAccessor(new PropertyAccessor);
+        
+        $sut->getTaxMinimum();
+    }
+    
+    /**
      * @depends testDecoratedStrategyIsSettable
-     *
+     * @depends testExceptionForTaxMinimumNotSetted
+     * 
      * @dataProvider taxminimumDataProvider
      */
     public function testTaxMinimumIsSettable($minimum)

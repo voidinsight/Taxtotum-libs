@@ -10,6 +10,18 @@ use Symfony\Component\PropertyAccess\PropertyAccessor;
 
 trait AbstractTaxStrategyTestTrait
 {
+    /**
+     * @expectedException VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException
+     */
+    public function testExceptionForAccessorNotSetted() {
+        $sut = $this->getMockForAbstractClass(AbstractTaxStrategy::class);
+        
+        $sut->getAccessor();
+    }
+    
+    /**
+     * @depends testExceptionForAccessorNotSetted
+     */
     public function testAccessorIsSettable() {
         $sut = $this->getMockForAbstractClass(AbstractTaxStrategy::class);
         $accessor = $this->getMock(PropertyAccessorInterface::class);
@@ -18,6 +30,18 @@ trait AbstractTaxStrategyTestTrait
         $this->assertSame($accessor, $sut->getAccessor());
     }
     
+    /**
+     * @expectedException VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException
+     */
+    public function testExceptionForDataNotSetted() {
+        $sut = $this->getMockForAbstractClass(AbstractTaxStrategy::class);
+        
+        $sut->getData();
+    }
+    
+    /**
+     * @depends testExceptionForDataNotSetted
+     */
     public function testDataIsSettable() {
         $sut = $this->getMockForAbstractClass(AbstractTaxStrategy::class);
         $data = $this->getMock(TaxStrategyDataInterface::class);
@@ -27,8 +51,22 @@ trait AbstractTaxStrategyTestTrait
     }
     
     /**
+     * @depends testDataIsSettable
+     * @depends testAccessorIsSettable
+     * 
+     * @expectedException VoidInsight\Taxtotum\Libs\Exception\Runtime\ValueNotSettedException
+     */
+    public function testExceptionForParamValueNotSetted() {
+        $sut = $this->getMockForAbstractClass(AbstractTaxStrategy::class);
+        $sut->setData(new TaxStrategyData)->setAccessor(new PropertyAccessor);
+        
+        $sut->getParamValue('no_exists_param');
+    }
+    
+    /**
      * @depends testAccessorIsSettable
      * @depends testDataIsSettable
+     * @depends testExceptionForParamValueNotSetted
      * 
      * @dataProvider paramsDataProvider
      */

@@ -2,6 +2,9 @@
 
 namespace VoidInsight\Taxtotum\Libs\TaxStrategy;
 
+use VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException;
+use VoidInsight\Taxtotum\Libs\Exception\Runtime\ValueNotSettedException;
+
 /**
  * Concrete implementation.
  *
@@ -26,7 +29,12 @@ class RatioTaxStrategy extends AbstractTaxStrategy
      */
     public function getRatioValue()
     {
-        return $this->getParamValue(self::PARAM_RATIO_VALUE);
+        try {
+            return $this->getParamValue(self::PARAM_RATIO_VALUE);
+        } catch(ValueNotSettedException $exception) {
+            throw new ItemNotSettedException('Tax Ratio value not setted', 0, $exception);
+        }
+        
     }
 
     /**

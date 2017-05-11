@@ -3,7 +3,12 @@
 namespace VoidInsight\Taxtotum\Libs\TaxStrategy;
 
 use VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyData\TaxStrategyDataInterface;
+use VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException;
+use VoidInsight\Taxtotum\Libs\Exception\Runtime\ValueNotSettedException;
+
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
+use Symfony\Component\PropertyAccess\Exception\AccessException;
+
 
 /**
  * Common ancestror for Strategies.
@@ -14,6 +19,8 @@ abstract class AbstractTaxStrategy implements TaxStrategyInterface, TaxStrategyC
 {
     /**
      * @internal
+     * 
+     * @var TaxStrategyDataInterface
      */
     private $params;
 
@@ -21,7 +28,13 @@ abstract class AbstractTaxStrategy implements TaxStrategyInterface, TaxStrategyC
      * @return TaxStrategyDataInterface
      */
     public function getData() {
-        return $this->params;
+        $data = $this->params;
+        
+        if(!is_a($data, TaxStrategyDataInterface::class)) {
+            throw new ItemNotSettedException('Data not setted');
+        }
+        
+        return $data;
     }
     
     /**
@@ -43,10 +56,18 @@ abstract class AbstractTaxStrategy implements TaxStrategyInterface, TaxStrategyC
     private $accessor;
     
     /**
+     * @throw ItemNotSettedException
+     * 
      * @return PropertyAccessorInterface
      */
     public function getAccessor() {
-        return $this->accessor;
+        $accessor = $this->accessor;
+        
+        if(!is_a($accessor, PropertyAccessorInterface::class)) {
+            throw new ItemNotSettedException('Accessor not setted');
+        }
+        
+        return $accessor;
     }
     
     /**
@@ -62,9 +83,15 @@ abstract class AbstractTaxStrategy implements TaxStrategyInterface, TaxStrategyC
     
     public function getParamValue($paramName)
     {
-        $data = $this->getData();
-        
-        return $this->getAccessor()->getValue($data, $paramName);
+        try {
+            $data = $this->getData();
+            $accessor = $this->getAccessor();
+            return $accessor->getValue($data, $paramName);
+            
+        } catch(AccessException $exception) {
+            throw new ValueNotSettedException('Value not setted', 0, $exception);
+            
+        }
     }
 
     public function setParamValue($paramName, $value)

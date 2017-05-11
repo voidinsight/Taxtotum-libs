@@ -2,6 +2,9 @@
 
 namespace VoidInsight\Taxtotum\Libs\TaxStrategy;
 
+use VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException;
+use VoidInsight\Taxtotum\Libs\Exception\Runtime\ValueNotSettedException;
+
 /**
  * Concrete implementation.
  *
@@ -16,7 +19,7 @@ class FixedTaxStrategy extends AbstractTaxStrategy
 
     public function calculate($taxable)
     {
-        return $this->getParamValue(self::PARAM_FIXED_VALUE);
+        return $this->getFixedTax();
     }
 
     /**
@@ -26,7 +29,12 @@ class FixedTaxStrategy extends AbstractTaxStrategy
      */
     public function getFixedTax()
     {
-        return $this->getParamValue(self::PARAM_FIXED_VALUE);
+        try {
+            return $this->getParamValue(self::PARAM_FIXED_VALUE);
+            
+        } catch(ValueNotSettedException $exception) {
+            throw new ItemNotSettedException('Fixed Tax value not setted', 0, $exception);
+        }
     }
 
     /**

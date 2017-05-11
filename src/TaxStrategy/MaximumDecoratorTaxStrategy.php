@@ -2,6 +2,9 @@
 
 namespace VoidInsight\Taxtotum\Libs\TaxStrategy;
 
+use VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException;
+use VoidInsight\Taxtotum\Libs\Exception\Runtime\ValueNotSettedException;
+
 /**
  * Strategy to limit maximum computated tax to a defined value.
  */
@@ -19,7 +22,11 @@ class MaximumDecoratorTaxStrategy extends AbstractDecoratorTaxStrategy
      */
     public function getTaxMaximum()
     {
-        return $this->getParamValue(self::PARAM_MAXIMUM_VALUE);
+        try {
+            return $this->getParamValue(self::PARAM_MAXIMUM_VALUE);
+        } catch(ValueNotSettedException $exception) {
+            throw new ItemNotSettedException('Tax Maximum limit not setted', 0, $exception);
+        }
     }
 
     /**

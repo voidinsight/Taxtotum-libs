@@ -2,6 +2,9 @@
 
 namespace VoidInsight\Taxtotum\Libs\TaxStrategy;
 
+use VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException;
+use VoidInsight\Taxtotum\Libs\Exception\Runtime\ValueNotSettedException;
+
 /**
  * Strategy to limit minimum computated tax to a minimum value.
  */
@@ -19,7 +22,11 @@ class MinimumDecoratorTaxStrategy extends AbstractDecoratorTaxStrategy
      */
     public function getTaxMinimum()
     {
-        return $this->getParamValue(self::PARAM_MINIMUM_VALUE);
+        try {
+            return $this->getParamValue(self::PARAM_MINIMUM_VALUE);
+        } catch(ValueNotSettedException $exception) {
+            throw new ItemNotSettedException('Tax Minimum limit not setted', 0, $exception);
+        }
     }
 
     /**

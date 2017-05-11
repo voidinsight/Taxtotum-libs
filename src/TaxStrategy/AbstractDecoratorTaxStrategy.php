@@ -2,6 +2,9 @@
 
 namespace VoidInsight\Taxtotum\Libs\TaxStrategy;
 
+use VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException;
+use VoidInsight\Taxtotum\Libs\Exception\Runtime\ValueNotSettedException;
+
 /**
  * Common ancestror for Strategy Decorators.
  *
@@ -18,11 +21,19 @@ abstract class AbstractDecoratorTaxStrategy extends AbstractTaxStrategy
      /**
       * Accessor method to get the Decorated Strategy Object.
       *
+      * @throws ItemNotSettedException
+      * 
       * @return TaxStrategyInterface
       */
      public function getDecoratedStrategy()
      {
-         return $this->getParamValue(self::PARAM_DECORATED_STRATEGY);
+         try {
+            return $this->getParamValue(self::PARAM_DECORATED_STRATEGY);
+            
+         } catch(ValueNotSettedException $exception) {
+             throw new ItemNotSettedException('Decorated Strategy not setted', 0, $exception);
+             
+         }
      }
 
      /**

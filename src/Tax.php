@@ -4,6 +4,9 @@ namespace VoidInsight\Taxtotum\Libs;
 
 use VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyInterface;
 
+use VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException;
+use VoidInsight\Taxtotum\Libs\Exception\Runtime\ValueNotSettedException;
+
 /**
  * Concrete Tax.
  *
@@ -22,7 +25,12 @@ class Tax extends AbstractTax
      */
     public function getStrategy()
     {
-        return $this->getParamValue(self::PARAM_STRATEGY);
+        try {
+            $strategy = $this->getParamValue(self::PARAM_STRATEGY);
+            return $strategy;
+        } catch(ValueNotSettedException $exception) {
+            throw new ItemNotSettedException('Strategy Object not setted', 0, $exception);
+        }
     }
 
     /**
