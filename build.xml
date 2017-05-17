@@ -73,8 +73,8 @@
                 </delete>
                 <delete verbose="false" quiet="true" includeemptydirs="true">
                     <fileset dir="." defaultexcludes="false">
-                        <include name="${vendorDir}"/>
-                        <include name="${buildDir}"/>
+                        <include name="${vendorDir}/**"/>
+                        <include name="${buildDir}/**"/>
                     </fileset>
                 </delete>
             </try>
