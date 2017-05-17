@@ -15,8 +15,8 @@ interface TaxInterface
      * Access to Taxable Attribute.
      *
      * An accessor method to read Taxable Attribute value
-     * 
-     * 
+     *
+     *
      * @return float
      */
     public function getTaxable();
