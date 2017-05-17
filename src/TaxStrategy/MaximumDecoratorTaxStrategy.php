@@ -24,7 +24,7 @@ class MaximumDecoratorTaxStrategy extends AbstractDecoratorTaxStrategy
     {
         try {
             return $this->getParamValue(self::PARAM_MAXIMUM_VALUE);
-        } catch(ValueNotSettedException $exception) {
+        } catch (ValueNotSettedException $exception) {
             throw new ItemNotSettedException('Tax Maximum limit not setted', 0, $exception);
         }
     }

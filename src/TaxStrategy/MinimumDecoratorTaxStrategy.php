@@ -24,7 +24,7 @@ class MinimumDecoratorTaxStrategy extends AbstractDecoratorTaxStrategy
     {
         try {
             return $this->getParamValue(self::PARAM_MINIMUM_VALUE);
-        } catch(ValueNotSettedException $exception) {
+        } catch (ValueNotSettedException $exception) {
             throw new ItemNotSettedException('Tax Minimum limit not setted', 0, $exception);
         }
     }
