@@ -61,11 +61,12 @@
         <trycatch>
             <try>
                 <exec command="git checkout -B build-${release.number}" checkreturn="true"/>
+                <phingcall target="build-phar"/>
             </try>
             <catch>
                 <exec command="git checkout master"/>
                 <exec command="git reset --hard HEAD"/>
-                <exec command="git branch -d build-${release.number}"/>
+                <exec command="git branch -D build-${release.number}"/>
             </catch>
         </trycatch>
     </target>
