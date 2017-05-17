@@ -25,8 +25,10 @@
         </phpunit>
     </target>
     
-    <target name="api" description="Generate API Documentation" depends="autoload">
+    <target name="clean-docs">
         <delete dir="${docsDir}" verbose="true" quiet="true" includeemptydirs="true"/>
+    </target>
+    <target name="docs" description="Generate API Documentation" depends="autoload, clean-docs">
         <mkdir dir="${docsDir}"/>
         
         <phpdoc2 pharLocation="${binDir}/phpDocumentor.phar" destdir="${docsDir}" template="responsive-twig">
@@ -34,9 +36,16 @@
         </phpdoc2>
     </target>
     
-    <target name="build" description="Generate Phar package ready for releasing">
+    <target name="clean-build">
         <delete dir="${buildDir}" verbose="true" quiet="true" includeemptydirs="true"/>
+    </target>
+    <target name="build-phar" description="Generate Phar package ready for releasing" depends="autoload, clean-build">
         <mkdir dir="${buildDir}"/>
         
+        <pharpackage destfile="${buildDir}/taxtotum-libs.phar" basedir="${srcDir}/">
+            <fileset refid="srcSet"/>
+        </pharpackage>
     </target>
+    
+    <target name="clean" description="Clean all temporary folders" depends="clean-docs, clean-build, autoload"/>
 </project>
