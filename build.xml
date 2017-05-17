@@ -58,5 +58,15 @@
                 validArgs="major,minor,bugfix" promptChar=":">Please, select a release type</input>
         <version releasetype="${release.type}" file="VERSION" property="release.number"/>
         
+        <trycatch>
+            <try>
+                <exec command="git checkout -B build-${release.number}" checkreturn="true"/>
+            </try>
+            <catch>
+                <exec command="git checkout master"/>
+                <exec command="git branch -d build-${release.number}"/>
+                <exec command="git checkout --"/>
+            </catch>
+        </trycatch>
     </target>
 </project>
