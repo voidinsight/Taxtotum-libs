@@ -2,6 +2,6 @@
 
 namespace VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyData;
 
-interface TaxStrategyDataInterface {
-    
+interface TaxStrategyDataInterface
+{
 }
