@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="taxtotum-libs" basedir="." default="autoload">
+    <property file="build.dist.properties"/>
+    <property file="build.properties" override="true"/>
+    
+    <fileset id="srcSet" dir="${srcDir}">
+        <include name="**/*.php"/>
+    </fileset>
+    
+    <fileset id="testSet" dir="${testDir}">
+        <include name="**/*Test.php"/>
+    </fileset>
+    
+    <target name="autoload" description="Dump a new Composer Autoload">
+        <composer composer="${composerBin}" command="dumpautoload"/>
+        <autoloader autoloaderpath="${vendorDir}/autoload.php"/>
+    </target>
+    
+    <target name="test" description="Run tests" depends="autoload">
+        <phpunit printsummary="true">
+            <batchtest>
+                <fileset refid="testSet"/>
+            </batchtest>
+        </phpunit>
+    </target>
+    
+    <target name="api" description="Generate API Documentation" depends="autoload">
+        <delete dir="${docsDir}" verbose="true" quiet="true" includeemptydirs="true"/>
+        <mkdir dir="${docsDir}"/>
+        
+        <phpdoc2 pharLocation="${binDir}/phpDocumentor.phar" destdir="${docsDir}" template="responsive-twig">
+            <fileset refid="srcSet"/>
+        </phpdoc2>
+    </target>
+    
+    <target name="build" description="Generate Phar package ready for releasing">
+        <delete dir="${buildDir}" verbose="true" quiet="true" includeemptydirs="true"/>
+        <mkdir dir="${buildDir}"/>
+        
+    </target>
+</project>

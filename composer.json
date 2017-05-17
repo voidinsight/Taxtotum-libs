@@ -14,23 +14,15 @@
         "symfony/property-access": "^3.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.8"
+        "phpunit/phpunit": "^4.8",
+        "phing/phing": "^2.16",
+        "phpmd/phpmd": "^2.6",
+        "phpdocumentor/reflection-docblock": "^3.1"
     },
     "autoload": {
         "psr-4": {
             "VoidInsight\\Taxtotum\\Libs\\": "src/",
             "VoidInsight\\Taxtotum\\Test\\": "test/"
         }
-    },
-    "scripts": {
-        "test": [
-            "phpunit --testdox --coverage-html docs/phpunit"
-        ],
-        "docs": [
-            "@test",
-            "bin/phpDocumentor.phar",
-            "git add docs/*",
-            "git commit -m \"Docs updated\""
-        ]
     }
 }
