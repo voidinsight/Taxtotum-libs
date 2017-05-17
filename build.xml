@@ -69,6 +69,7 @@
                         <exclude name=".*"/>
                         <exclude name="${buildDir}"/>
                         <exclude name="composer.json"/>
+                        <exclude name="taxtotum-libs.phar"/>
                     </fileset>
                 </delete>
                 <delete verbose="false" quiet="true" includeemptydirs="true">
