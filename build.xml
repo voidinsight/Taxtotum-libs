@@ -62,21 +62,21 @@
             <try>
                 <exec command="git checkout -B build-${release.number}" checkreturn="true"/>
                 <phingcall target="build-phar"/>
+                <move file="${buildDir}/taxtotum-libs.phar" todir="."/>
                 <delete verbose="false" quiet="true" includeemptydirs="true">
                     <fileset dir=".">
                         <include name="**/**"/>
                         <exclude name=".*"/>
                         <exclude name="${buildDir}"/>
                         <exclude name="composer.json"/>
-                        <exclude name="build.*"/>
                     </fileset>
                 </delete>
                 <delete verbose="false" quiet="true" includeemptydirs="true">
-                    <fileset dir="${vendorDir}" defaultexcludes="false">
-                        <include name="**/**"/>
+                    <fileset dir="." defaultexcludes="false">
+                        <include name="${vendorDir}"/>
+                        <include name="${buildDir}"/>
                     </fileset>
                 </delete>
-                <move file="${buildDir}/taxtotum-libs.phar" todir="."/>
             </try>
             <catch>
                 <exec command="git checkout master"/>
