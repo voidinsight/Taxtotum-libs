@@ -62,6 +62,13 @@
             <try>
                 <exec command="git checkout -B build-${release.number}" checkreturn="true"/>
                 <phingcall target="build-phar"/>
+                <delete verbose="true" quiet="true" includeemptydirs="true">
+                    <fileset dir=".">
+                        <include name="**/**"/>
+                        <exclude name=".*"/>
+                        <exclude name="build"/>
+                    </fileset>
+                </delete>
             </try>
             <catch>
                 <exec command="git checkout master"/>
