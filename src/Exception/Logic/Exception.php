@@ -2,6 +2,6 @@
 
 namespace VoidInsight\Taxtotum\Libs\Exception\Logic;
 
-class Exception extends \LogicException {
-    
+class Exception extends \LogicException
+{
 }
