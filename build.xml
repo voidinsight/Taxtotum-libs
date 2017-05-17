@@ -31,7 +31,7 @@
     <target name="docs" description="Generate API Documentation" depends="autoload, clean-docs">
         <mkdir dir="${docsDir}"/>
         
-        <phpdoc2 pharLocation="${binDir}/phpDocumentor.phar" destdir="${docsDir}" template="responsive-twig">
+        <phpdoc2 destdir="${docsDir}" template="responsive-twig">
             <fileset refid="srcSet"/>
         </phpdoc2>
     </target>
