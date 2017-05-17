@@ -62,11 +62,15 @@
             <try>
                 <exec command="git checkout -B build-${release.number}" checkreturn="true"/>
                 <phingcall target="build-phar"/>
-                <delete verbose="true" quiet="true" includeemptydirs="true">
+                <delete verbose="false" quiet="true" includeemptydirs="true">
                     <fileset dir=".">
                         <include name="**/**"/>
                         <exclude name=".*"/>
                         <exclude name="${buildDir}"/>
+                    </fileset>
+                </delete>
+                <delete verbose="false" quiet="true" includeemptydirs="true">
+                    <fileset dir=".">
                         <include name="${vendorDir}"/>
                     </fileset>
                 </delete>
