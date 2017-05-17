@@ -2,29 +2,26 @@
 
 namespace VoidInsight\Taxtotum\Test;
 
-use VoidInsight\Taxtotum\Libs\Tax;
-use VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyInterface;
-
-use VoidInsight\Taxtotum\Libs\TaxData\TaxData;
-use VoidInsight\Taxtotum\Libs\TaxData\TaxDataInterface;
-
 use Symfony\Component\PropertyAccess\PropertyAccessor;
-use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
+use VoidInsight\Taxtotum\Libs\Tax;
+use VoidInsight\Taxtotum\Libs\TaxData\TaxData;
+use VoidInsight\Taxtotum\Libs\TaxStrategy\TaxStrategyInterface;
 
 trait TaxTestTrait
 {
     /**
      * @expectedException VoidInsight\Taxtotum\Libs\Exception\Logic\ItemNotSettedException
      */
-    public function testExceptionForStrategyNotSetted() {
+    public function testExceptionForStrategyNotSetted()
+    {
         $sut = $this->getMockBuilder(Tax::class)
                             ->setMethods(null)
                             ->getMock();
-        $sut->setData(new TaxData)->setAccessor(new PropertyAccessor);
-        
+        $sut->setData(new TaxData())->setAccessor(new PropertyAccessor());
+
         $sut->getStrategy();
     }
-    
+
     /**
      * @depends testParamsAreSettable
      * @depends testExceptionForStrategyNotSetted
@@ -36,7 +33,7 @@ trait TaxTestTrait
         $sut = $this->getMockBuilder(Tax::class)
                             ->setMethods(null)
                             ->getMock();
-        $sut->setData(new TaxData)->setAccessor(new PropertyAccessor);
+        $sut->setData(new TaxData())->setAccessor(new PropertyAccessor());
 
         $this->assertSame($sut, $sut->setStrategy($strategy));
         $this->assertSame($strategy, $sut->getStrategy());
@@ -66,9 +63,9 @@ trait TaxTestTrait
         $sut = $this->getMockBuilder(Tax::class)
                             ->setMethods(null)
                             ->getMock();
-        $sut->setData(new TaxData)->setAccessor(new PropertyAccessor);
+        $sut->setData(new TaxData())->setAccessor(new PropertyAccessor());
         $sut->setTaxable($taxable)->setStrategy($strategy);
-        
+
         $this->assertSame($tax, $sut->calculate());
     }
 
