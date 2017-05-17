@@ -22,17 +22,15 @@ abstract class AbstractDecoratorTaxStrategy extends AbstractTaxStrategy
       * Accessor method to get the Decorated Strategy Object.
       *
       * @throws ItemNotSettedException
-      * 
+      *
       * @return TaxStrategyInterface
       */
      public function getDecoratedStrategy()
      {
          try {
-            return $this->getParamValue(self::PARAM_DECORATED_STRATEGY);
-            
-         } catch(ValueNotSettedException $exception) {
+             return $this->getParamValue(self::PARAM_DECORATED_STRATEGY);
+         } catch (ValueNotSettedException $exception) {
              throw new ItemNotSettedException('Decorated Strategy not setted', 0, $exception);
-             
          }
      }
 
