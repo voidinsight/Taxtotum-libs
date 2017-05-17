@@ -64,8 +64,8 @@
             </try>
             <catch>
                 <exec command="git checkout master"/>
+                <exec command="git reset --hard HEAD"/>
                 <exec command="git branch -d build-${release.number}"/>
-                <exec command="git checkout --"/>
             </catch>
         </trycatch>
     </target>
