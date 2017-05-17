@@ -31,10 +31,9 @@ class RatioTaxStrategy extends AbstractTaxStrategy
     {
         try {
             return $this->getParamValue(self::PARAM_RATIO_VALUE);
-        } catch(ValueNotSettedException $exception) {
+        } catch (ValueNotSettedException $exception) {
             throw new ItemNotSettedException('Tax Ratio value not setted', 0, $exception);
         }
-        
     }
 
     /**
