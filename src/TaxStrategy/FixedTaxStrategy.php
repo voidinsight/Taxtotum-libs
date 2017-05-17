@@ -31,8 +31,7 @@ class FixedTaxStrategy extends AbstractTaxStrategy
     {
         try {
             return $this->getParamValue(self::PARAM_FIXED_VALUE);
-            
-        } catch(ValueNotSettedException $exception) {
+        } catch (ValueNotSettedException $exception) {
             throw new ItemNotSettedException('Fixed Tax value not setted', 0, $exception);
         }
     }
