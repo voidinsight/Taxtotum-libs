@@ -17,6 +17,10 @@
         <autoloader autoloaderpath="${vendorDir}/autoload.php"/>
     </target>
     
+    <target name="update" description="Update all project's components">
+        <composer composer="${composerBin}" command="update"/>
+    </target>
+    
     <target name="test" description="Run tests" depends="autoload">
         <phpunit printsummary="true">
             <batchtest>
@@ -47,5 +51,12 @@
         </pharpackage>
     </target>
     
-    <target name="clean" description="Clean all temporary folders" depends="clean-docs, clean-build, autoload"/>
+    <target name="clean" description="Clean all temporary folders" depends="clean-build,clean-docs"/>
+    
+    <target name="release" description="Create a new release of package">
+        <input propertyName="release.type" defaultValue="bugfix"
+                validArgs="major,minor,bugfix" promptChar=":">Please, select a release type</input>
+        <version releasetype="${release.type}" file="VERSION" property="release.number"/>
+        
+    </target>
 </project>
