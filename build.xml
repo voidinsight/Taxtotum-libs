@@ -67,6 +67,7 @@
                         <include name="**/**"/>
                         <exclude name=".*"/>
                         <exclude name="${buildDir}"/>
+                        <exclude name="composer.json"/>
                     </fileset>
                 </delete>
                 <delete verbose="false" quiet="true" includeemptydirs="true">
