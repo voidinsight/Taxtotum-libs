@@ -70,8 +70,8 @@
                     </fileset>
                 </delete>
                 <delete verbose="false" quiet="true" includeemptydirs="true">
-                    <fileset dir=".">
-                        <include name="${vendorDir}"/>
+                    <fileset dir="${vendorDir}" defaultexcludes="false">
+                        <include name="**/**"/>
                     </fileset>
                 </delete>
             </try>
