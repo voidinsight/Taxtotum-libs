@@ -67,7 +67,7 @@
                         <include name="**/**"/>
                         <exclude name=".*"/>
                         <exclude name="${buildDir}"/>
-                        <include name="${vendorDir}"
+                        <include name="${vendorDir}"/>
                     </fileset>
                 </delete>
             </try>
